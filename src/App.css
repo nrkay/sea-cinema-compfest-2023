@@ -19,11 +19,13 @@
   }
   
   .unavailable {
-    background-color: #d3d3d3;
+    background-color: #d3d3d3 !important;
     cursor: not-allowed;
   }
   
   .selected {
     background-color: #ffc107 !important;
   }
+
+
   

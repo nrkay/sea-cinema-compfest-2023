@@ -4,9 +4,9 @@ function Contoh() {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [transactionError, setTransactionError] = useState('');
 
-    console.log("ini seats nya", seats)
 
     const handleSeatClick = (seatNumber) => {
+        console.log("ini selectednya", selectedSeats)
         if (selectedSeats.includes(seatNumber)) {
             setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
         } else {
