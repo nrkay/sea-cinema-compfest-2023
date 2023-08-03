@@ -52,14 +52,14 @@ function DetailMovie() {
 
     return (
         <>
-            <div className="bg-gray-900 grid content-center">
+            <div className="bg-gray-900 grid content-center py-14">
                 {data
                     .filter((element, index) => index === nilaiId)
                     .map((data) => {
                         return (
                             <>
-                                <div className="w-4/5 lg:w-3/5 my-3 lg:my-0 bg-gray-800 mx-auto lg:flex">
-                                    <div className="lg:w-1/3 flex items-center lg:px-5 bg-gray-900">
+                                <div className="w-4/5 lg:w-3/5 py-5 lg:my-0 bg-gray-800 mx-auto lg:flex">
+                                    <div className="lg:w-1/3 flex items-center lg:px-5 ">
                                         <img src={data.poster_url} alt="" />
                                     </div>
                                     <div className="lg:w-2/3">
