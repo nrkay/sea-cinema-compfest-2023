@@ -46,7 +46,7 @@ function DetailMovie() {
             );
             setSeatMovie(updateSeat);
             setSelectedSeats([]);
-            setTransactionError("");
+            setTransactionError("Transaksi Berhasil");
         }
     };
 
