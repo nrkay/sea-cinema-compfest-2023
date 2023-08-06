@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
@@ -13,20 +12,8 @@ function Landing() {
 
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
-    const [data, setData] = useState([]);
     useEffect(() => {
-        // const fetchData = async () => {
-        //     try {
-        //         const response = await axios.get(
-        //             "https://seleksi-sea-2023.vercel.app/api/movies"
-        //         ); // Ganti URL dengan URL API yang sesuai
-        //         setData(response.data);
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // };
 
-        // fetchData();
         dispatch(getMovie())
 
     }, []);

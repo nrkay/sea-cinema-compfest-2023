@@ -1,38 +1,33 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Movie from "../Data/SeatMovie";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovie } from "../Redux/Action/MovieAction";
 function DetailMovie() {
+    const dispatch = useDispatch();
+    const { movie } = useSelector(state => state.movie)
     const { id } = useParams();
     const nilaiId = parseInt(id);
     const [selectedSeats, setSelectedSeats] = useState([]);
-    const [seatMovie, setSeatMovie] = useState(Array(64).fill(true));
+    const [seatMovie, setSeatMovie] = useState(Array(64).fill({ booked: true, title: "ini title", number: null }));
     const [transactionError, setTransactionError] = useState("");
-    const [data, setData] = useState([]);
+    const [movieBooked, setmovieBooked] = useState([]);
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    "https://seleksi-sea-2023.vercel.app/api/movies"
-                );
-                setData(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        fetchData();
+        dispatch(getMovie)
     }, []);
 
+
+
+
+
+
     const handleSelected = (seatNumber) => {
-        console.log(seatNumber);
         if (selectedSeats.includes(seatNumber)) {
             setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
         } else {
             setSelectedSeats([...selectedSeats, seatNumber]);
         }
 
-        console.log("array:", selectedSeats);
     };
 
     const handleBooked = () => {
@@ -44,16 +39,20 @@ function DetailMovie() {
             const updateSeat = seatMovie.map((data, index) =>
                 selectedSeats.includes(index + 1) ? false : data
             );
+            // untuk mencari seat mana yg sudah dipilih agar dikirim ke redux
+            const selectedBookedMovie = seatMovie.map((data, index) =>
+                selectedSeats.includes(index + 1) ? data : false
+            )
+            setmovieBooked(selectedBookedMovie)
             setSeatMovie(updateSeat);
             setSelectedSeats([]);
             setTransactionError("Transaksi Berhasil");
         }
     };
-
     return (
         <>
             <div className="bg-gray-900 grid content-center py-14">
-                {data
+                {movie
                     .filter((element, index) => index === nilaiId)
                     .map((data) => {
                         return (
@@ -96,8 +95,7 @@ function DetailMovie() {
                                             {seatMovie.map((data, index) => {
                                                 return (
                                                     <>
-                                                        {/* <button key={index} className={`bg-gray-500 hover:bg-gray-950 hover:text-white ${!data.status ? 'unavailable' : selectedSeats.includes(index + 1) ? 'selected' : ''} `} onClick={(e) => handleBooking(data, e)}>{data.number_seat}</button> */}
-                                                        {/* <button key={index} className={` ${!data.status ? 'unavailable' : selectedSeats.includes(index + 1) ? 'selected' : ''} `} onClick={(e) => handleSelectMovie(index + 1, e)}>{index + 1}</button> */}
+
                                                         <button
                                                             className={`bg-gray-600 p-2 hover:bg-gray-500 ${!data
                                                                 ? "unavailable"
