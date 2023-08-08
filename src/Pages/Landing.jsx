@@ -7,9 +7,6 @@ import { getMovie } from "../Redux/Action/MovieAction";
 function Landing() {
     // useSlector digunakan untuk mengambil state dari redux Store, yaitu store movie
     const { movie, isLoading } = useSelector(state => state.movie);
-    // mengecek data dari redux
-    console.log("ini dari redux", movie)
-
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
     useEffect(() => {
@@ -18,7 +15,6 @@ function Landing() {
 
     }, []);
 
-    console.log(search);
 
     return (
         <>
@@ -26,12 +22,12 @@ function Landing() {
                 <div className="lg:mx-14 mx-5 pt-6">
                     <div className="">
                         <div className="form-searc grid grid-cols-4 lg:grid-cols-3 ">
-                            <div class="relative z-0 w-full mb-6 group col-span-3 lg:col-span-1">
+                            <div className="relative z-0 w-full mb-6 group col-span-3 lg:col-span-1">
                                 <input
                                     type="text"
                                     name="floating_password"
                                     id="floating_password"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
+                                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer"
                                     placeholder="search here... "
                                     required
                                     onChange={(e) => {
@@ -91,12 +87,6 @@ function Landing() {
                                     </>
                                 );
                             })}
-
-                        {/* <div className="bg-red-300">p</div>
-                        <div className="bg-red-300">p</div>
-                        <div className="bg-red-300">p</div>
-                        <div className="bg-red-300">p</div>
-                        <div className="bg-red-300">p</div> */}
                     </div>
                 </div>
             </div>
