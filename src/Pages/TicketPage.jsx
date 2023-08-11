@@ -34,29 +34,33 @@ function TicketPage() {
 
                     {ticketBooked.map((item, index) => {
                         return (
-                            <div className="card-bookedMovie bg-gray-700 py-6 mx-3 mb-3 rounded-md grid grid-cols-2 lg:grid-cols-2 lg:mx-auto lg:w-1/2">
+                            <div className="card-bookedMovie bg-gray-700 py-6 mx-3 mb-3 rounded-md grid grid-cols-2 lg:mx-auto lg:w-1/2">
                                 <div className="img-card">
                                     <div className="relative w-36 h-36 mx-auto">
                                         <img className="absolute w-full h-full mx-auto rounded-md" src={item.poster} alt="" />
                                     </div>
                                 </div>
                                 <div className="desc">
-                                    <div className="flex">
-                                        <h3 className="mr-3 font-bold text-gray-300">Title : </h3>
-                                        <h3 className="text-gray-200">{item.name}</h3>
-                                    </div>
-                                    <div className="flex">
-                                        <h3 className="mr-3 font-bold text-white">Date : </h3>
-                                        <h3 className="text-gray-200">{item.relase_date}</h3>
-                                    </div>
-                                    <div className="flex">
-                                        <p className="mr-2 font-bold text-white">Seat :</p>
+                                    <h3 className="font-bold text-gray-300 text-center text-sm md:text-lg">{item.name}</h3>
+                                    <h3 className="text-gray-200 text-center text-sm md:text-lg mt-2">{item.relase_date}</h3>
+                                    <p className="text-center font-bold text-white text-sm md:text-lg">Seat :</p>
+                                    <div className="flex mt-2">
                                         {item.seat.filter(item => item === false).map((item, index) => {
                                             return (
-                                                <p className="text-gray-200 mr-1">{index + 1}, </p>
+                                                <p className="text-center text-gray-200 mr-1 text-sm md:text-lg p-1 border-2 border-white">{index + 1}</p>
                                             )
                                         })}
                                     </div>
+
+
+
+                                    {/* <p className="text-center font-bold text-white text-sm md:text-lg">Seat :</p>
+                                    {item.seat.filter(item => item === false).map((item, index) => {
+                                        return (
+                                            <p className="text-center text-gray-200 mr-1 text-sm md:text-lg">{index + 1}</p>
+                                        )
+                                    })} */}
+
 
                                 </div>
                             </div>
