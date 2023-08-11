@@ -17,10 +17,10 @@ function TicketPage() {
 
     return (
         <>
-            <div className="ticket bg-gray-800 min-h-screen h-fit">
+            <div className="ticket bg-gray-800 min-h-screen h-fit pt-3">
                 {ticketBooked.map((item, index) => {
                     return (
-                        <div className="card-bookedMovie bg-gray-700 py-6 mx-3 mb-3 lg:mx-12 grid grid-cols-2 lg:grid-cols-5 ">
+                        <div className="card-bookedMovie bg-gray-700 py-6 mx-3 mb-3 rounded-md grid grid-cols-2 lg:grid-cols-2 lg:mx-auto lg:w-1/2">
                             <div className="img-card">
                                 <div className="relative w-36 h-36 mx-auto">
                                     <img className="absolute w-full h-full mx-auto" src={item.poster} alt="" />
