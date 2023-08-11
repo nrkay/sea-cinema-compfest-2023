@@ -1,12 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import movieReducer from "../Reducer/MovieReducer";
 import thunk from "redux-thunk";
-import selectMovieReducer from "../Reducer/selectMovieReucer";
 import seatMovie from "../Reducer/seatMovie";
+import balanceReducer from "../Reducer/Balance";
 
 const allReducer = combineReducers({
+  balance: balanceReducer,
   movie: movieReducer,
-  selectMovie: selectMovieReducer,
   seatMovie: seatMovie,
 });
 

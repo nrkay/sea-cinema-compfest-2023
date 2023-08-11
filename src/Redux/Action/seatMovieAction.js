@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const MAKE_SEAT_MOVIE = "MAKE_SEAT_MOVIE";
 export const FETCH_DATA = "FETCH_DATA";
+export const UPDATE_SEAT_BOOKED = "UPDATE_SEAT_BOOKED";
 
 function fetchMovie(data) {
   return {
@@ -9,6 +10,13 @@ function fetchMovie(data) {
     payload: data,
   };
 }
+
+export const editSeatBookedMovie = (data) => {
+  return {
+    type: UPDATE_SEAT_BOOKED,
+    payload: data,
+  };
+};
 
 export const seatMovieAction = () => {
   return async (dispatch) => {
